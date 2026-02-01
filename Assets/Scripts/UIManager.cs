@@ -114,4 +114,9 @@ public class UIManager : MonoBehaviour
         Image img = btn.GetComponent<Image>();
         return img != null ? img.color : Color.white;
     }
+
+    public void LVL_4_OyunBaşlat() 
+    {
+        KarakterGoruntuleme.baslat = true;
+    }
 }

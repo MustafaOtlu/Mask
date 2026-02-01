@@ -12,6 +12,8 @@ TagManager:
   - Graund
   - EvPortal
   - Enemy
+  - ShowSequence
+  - WorldFindObject
   layers:
   - Default
   - TransparentFX
