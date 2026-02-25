@@ -1,16 +1,24 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
     public float speed = 5f;
     public  bool canMove = true;
+    int IlerlemeIndex;
+    public Text txt;
+
 
 
 
 
     void Update()
     {
+        IlerlemeIndex = PlayerPrefs.GetInt("IlerlemeIndex", 1);
+        if (txt != null) { txt.text = ("Level : " + IlerlemeIndex).ToString(); }
+        
+
         if (canMove)
         {
             if (Input.GetKey(KeyCode.W))
@@ -44,40 +52,22 @@ public class CharacterController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("LVL_1"))
+        if (!Input.GetKey(KeyCode.E))
+            return;
+
+        if (other.CompareTag("LVL_1") && IlerlemeIndex == 2)
         {
-            if (Input.GetKeyDown(KeyCode.E)) 
-            {
-                SceneManager.LoadScene(1);
-            }
+            SceneManager.LoadScene(2);
         }
-        if (other.gameObject.CompareTag("LVL_2"))
+        else if (other.CompareTag("LVL_2") && IlerlemeIndex == 3)
         {
-            if (Input.GetKeyDown(KeyCode.E)) 
-            {
-                SceneManager.LoadScene(3);
-            }
+            SceneManager.LoadScene(3);
         }
-        if (other.gameObject.CompareTag("LVL_3"))
+        else if (other.CompareTag("LVL_3") && IlerlemeIndex == 4)
         {
-            if (Input.GetKeyDown(KeyCode.E)) 
-            {
-                SceneManager.LoadScene(4);
-            }
+            SceneManager.LoadScene(4);
         }
-        if (other.gameObject.CompareTag("LVL_4"))
-        {
-            if (Input.GetKeyDown(KeyCode.E)) 
-            {
-                SceneManager.LoadScene(5);
-            }
-        }
-        if (other.gameObject.CompareTag("LVL_5"))
-        {
-            if (Input.GetKeyDown(KeyCode.E)) 
-            {
-                SceneManager.LoadScene(6);
-            }
-        }
+
     }
+
 }

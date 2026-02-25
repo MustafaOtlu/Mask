@@ -24,6 +24,12 @@ public class UIManager : MonoBehaviour
     public RectTransform GoruntuPanel;
 
     // ===== SAÇ =====
+
+    private void Start()
+    {
+        KarakterOzellikleri.SagGoz = SagGoz;
+        KarakterOzellikleri.SolGoz = SolGoz;
+    }
     public void SacDegistir(int index)
     {
         KarakterOzellikleri.SacPrefab = Saclar[index];
